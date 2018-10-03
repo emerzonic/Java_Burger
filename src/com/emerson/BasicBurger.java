@@ -37,6 +37,16 @@ public class BasicBurger {
     }
 
 
+    private String getAddons() {
+        StringBuilder addOnList = new StringBuilder();
+        for (Object addOn : this.additions){
+            String item =  addOn +", ";
+            addOnList.append(item);
+        }
+        return addOnList.toString();
+    }
+
+
     private Double getPrice() {
         return price;
     }
@@ -78,7 +88,7 @@ public class BasicBurger {
         System.out.println("===========================");
         System.out.println("Bread: " + this.getBread());
         System.out.println("Meat: " + this.meat);
-        System.out.println("Extra add on : " + this.additions.toString());
+        System.out.println("Extra add on: " + this.getAddons());
         System.out.println("===========================");
         String input = scanner.nextLine();
         if (input.toLowerCase().equals("y")) {
@@ -92,6 +102,6 @@ public class BasicBurger {
 
     private void deliverBurger() {
         System.out.println("Your total is " + this.getPrice());
-
+        System.out.println("Thanks for your business!");
     }
 }
