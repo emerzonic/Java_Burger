@@ -38,7 +38,7 @@ public class BasicBurger {
     }
 
 
-    //This method take the buyer's order
+    //This method takes the buyer's order
     void takeOrder(int limit) {
         System.out.println("Which type of add on would you like? Enter q anytime to stop");
         for (int i = 0; i < this.addonsList.length; i++) {
