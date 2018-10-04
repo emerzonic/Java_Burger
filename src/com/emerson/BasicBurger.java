@@ -13,7 +13,7 @@ public class BasicBurger {
     private Scanner scanner = new Scanner(System.in);
     public String[] addonsList;
     private String bread;
-    private String name;
+    public String name;
 
     BasicBurger(String meat) {
         this.name = "Basic Burger";
@@ -29,8 +29,12 @@ public class BasicBurger {
     }
 
 
-    private String getBread() {
+    public String getBread() {
         return bread;
+    }
+
+    public String getName() {
+        return name;
     }
 
 
@@ -91,7 +95,7 @@ public class BasicBurger {
             } else {
                 int index = Integer.parseInt(itemCode) - 1;
                 this.additions.add(this.addonsList[index]);
-                System.out.println(this.addonsList[index] + " has been added");
+                System.out.println(this.addonsList[index] + " has been added to your "+ this.getName());
                 counter++;
             }
         }
