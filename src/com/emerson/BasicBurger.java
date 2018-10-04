@@ -1,11 +1,12 @@
 package com.emerson;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class BasicBurger {
-    private Double price;
+    private Double basePrice;
     private String meat;
     private ArrayList<Object> additions;
     private Scanner scanner = new Scanner(System.in);
@@ -16,7 +17,7 @@ public class BasicBurger {
     BasicBurger(String meat) {
         this.name = "Basic Burger";
         this.bread = "White Bread";
-        this.price = 5.00;
+        this.basePrice = 5.00;
         this.meat = meat;
         this.additions = new ArrayList<>();
         this.addonsList = new String[]{"tomato", "carrot", "mushroom", "lettuce", "bacon", "onion", "egg", "pickle"};
@@ -24,7 +25,7 @@ public class BasicBurger {
     }
 
     private Double getPrice() {
-        return price;
+        return basePrice;
     }
 
 
@@ -33,8 +34,8 @@ public class BasicBurger {
     }
 
     private void setPrice() {
-        int extraCost = this.additions.size() * 2;
-        this.price += extraCost;
+        Double extraCost = this.additions.size() * 1.99;
+        this.basePrice += extraCost;
     }
 
 
@@ -118,7 +119,7 @@ public class BasicBurger {
 
     //This method displays the order's total for the burger
     private void deliverBurger() {
-        System.out.println("Your total is " + this.getPrice());
+        System.out.println("Your total is $" + new DecimalFormat("##.##").format(this.getPrice()));
         System.out.println("Thanks for your business!");
     }
 }

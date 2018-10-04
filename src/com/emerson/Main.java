@@ -9,6 +9,7 @@ public class Main {
         System.out.println("Which type of burger would you like? ");
         System.out.println("Enter the burger code\n 1 for Basic Burger\n 2 for Healthy Burger\n 3 for Deluxe Burger\n");
         String userInput = scanner.nextLine();
+
         switch (userInput) {
             case "1":
                 System.out.println("What meat would you like? ");
