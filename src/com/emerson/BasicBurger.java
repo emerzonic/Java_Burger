@@ -107,11 +107,11 @@ public class BasicBurger {
         System.out.println("===========================");
         System.out.println("Does everything look good? y/n");
         String input = scanner.nextLine();
+        //TO DO: add additional actions
         if (input.toLowerCase().equals("y")) {
             this.deliverBurger();
         } else {
             System.out.println("What would you like to change?");
-            //TO DO: add additional actions
         }
     }
 
