@@ -9,12 +9,12 @@ The shop sells 3 different burger types:
  * Each topping cost an extra $1.99
  
  ##### Healthy Burger
- * This burger type is made with wheat bread and costs the base price of $6.00
+ * This burger type is made with wheat bread and costs the base price of $5.00
  * Healthy burger comes with a meat choice takes maximum 6 toppings
  * Each topping cost an extra $1.99
      
  ##### Deluxe Burger
- * This burger type is made with white bread and costs the base price of $6.99
+ * This burger type is made with white bread and costs the base price of $5.00
  * Deluxe burger comes with a meat choice along with chips and drinks but no extra topping
  * The chip and drink cost each cost $1.99
 

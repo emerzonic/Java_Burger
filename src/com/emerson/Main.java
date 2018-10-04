@@ -20,7 +20,7 @@ public class Main {
             case "2":
                 System.out.println("What meat would you like? ");
                 meat = scanner.nextLine();
-                HealthyBurger healthyBurger = new HealthyBurger(meat);
+                HealthyBurger healthyBurger = new HealthyBurger("gvhvgv");
                 healthyBurger.takeOrder(6);
                 break;
             case "3":

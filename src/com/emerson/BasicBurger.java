@@ -40,7 +40,7 @@ public class BasicBurger {
 
     //this method gets and sets the total price of the burger.
     private void setPrice() {
-        Double extraCost = this.additions.size() * 1.99;
+        Double extraCost = this.additions.size() * 1.99D;
         this.basePrice += extraCost;
     }
 
