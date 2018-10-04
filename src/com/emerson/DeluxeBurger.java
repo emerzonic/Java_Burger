@@ -1,7 +1,5 @@
 package com.emerson;
 
-import java.util.ArrayList;
-
 public class DeluxeBurger extends BasicBurger {
 
 

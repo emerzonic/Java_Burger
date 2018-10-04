@@ -3,12 +3,13 @@ package com.emerson;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class BasicBurger {
     private Double basePrice;
     private String meat;
-    private ArrayList<Object> additions;
+    private List<Object> additions;
     private Scanner scanner = new Scanner(System.in);
     public String[] addonsList;
     private String bread;
@@ -17,11 +18,10 @@ public class BasicBurger {
     BasicBurger(String meat) {
         this.name = "Basic Burger";
         this.bread = "White Bread";
-        this.basePrice = 5.00;
+        this.basePrice = 5D;
         this.meat = meat;
         this.additions = new ArrayList<>();
         this.addonsList = new String[]{"tomato", "carrot", "mushroom", "lettuce", "bacon", "onion", "egg", "pickle"};
-
     }
 
     private Double getPrice() {
@@ -33,6 +33,8 @@ public class BasicBurger {
         return bread;
     }
 
+
+    //this method gets and sets the total price of the burger.
     private void setPrice() {
         Double extraCost = this.additions.size() * 1.99;
         this.basePrice += extraCost;
@@ -63,15 +65,15 @@ public class BasicBurger {
 
     //This method returns a string of the addonsList indexes to be used for validation
     private String getAddonsIndexes() {
-        StringBuilder index = new StringBuilder();
-        int counter = 1;
-        while (counter <= this.addonsList.length) {
-            String stringIndex = Integer.toString(counter);
-            String item = "" + stringIndex;
-            index.append(item);
-            counter++;
+        StringBuilder indexList = new StringBuilder();
+        int intIndex = 1;
+        while (intIndex <= this.addonsList.length) {
+            String stringIndex = Integer.toString(intIndex);
+            String element = "" + stringIndex;
+            indexList.append(element);
+            intIndex++;
         }
-        return index.toString();
+        return indexList.toString();
     }
 
 
@@ -104,7 +106,7 @@ public class BasicBurger {
         System.out.println("===========================");
         System.out.println("Bread: " + this.getBread());
         System.out.println("Meat: " + this.meat);
-        System.out.println("Extra add on: " + this.getAddons());
+        System.out.println("Extra add-ons: " + this.getAddons());
         System.out.println("===========================");
         System.out.println("Does everything look good? y/n");
         String input = scanner.nextLine();
