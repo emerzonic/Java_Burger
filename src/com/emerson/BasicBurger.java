@@ -51,7 +51,7 @@ public class BasicBurger {
     //This method takes the buyer's order
     protected void takeOrder(int limit) {
         System.out.println("====================================");
-        System.out.println("     B U R G E R  M E N U ");
+        System.out.println("    EXTRA ADD-ONS  M E N U ");
         System.out.println("====================================");
         System.out.println("Add-on Code  Extra Add-on Item");
         System.out.println("---------------------------------");
@@ -98,12 +98,15 @@ public class BasicBurger {
                 break;
 
             } else if (itemCode.equals("") || !this.addonCodes.contains(itemCode)) {
-                System.out.println("That was an invalid item code");
+                System.out.println("That was an invalid item code.");
+
+            } else if (this.additions.contains(this.addonsList[Integer.parseInt(itemCode) - 1])) {
+                System.out.println("You have already added " + this.addonsList[Integer.parseInt(itemCode) - 1] + ".");
 
             } else {
                 int index = Integer.parseInt(itemCode) - 1;
                 this.additions.add(this.addonsList[index]);
-                System.out.println(this.addonsList[index] + " has been added to your "+ this.getName());
+                System.out.println(this.addonsList[index] + " has been added to your " + this.getName() + ".");
                 counter++;
             }
         }
