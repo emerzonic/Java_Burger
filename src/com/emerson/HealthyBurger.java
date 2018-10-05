@@ -16,12 +16,12 @@ public class HealthyBurger extends BasicBurger {
 
     @Override
     public String getBread() {
-        return this.bread;
+        return bread;
     }
 
     @Override
     public String getName() {
-        return this.name;
+        return name;
     }
 }
 

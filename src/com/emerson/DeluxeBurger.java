@@ -13,7 +13,7 @@ public class DeluxeBurger extends BasicBurger {
 
     @Override
     public String getName() {
-        return this.name;
+        return name;
 
     }
 }
