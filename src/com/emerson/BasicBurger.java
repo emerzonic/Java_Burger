@@ -11,9 +11,11 @@ public class BasicBurger {
     private String meat;
     private List<Object> additions;
     private Scanner scanner = new Scanner(System.in);
-    public String[] addonsList;
+    protected String[] addonsList;
+    protected String addonCodes;
     private String bread;
-    public String name;
+    private String name;
+
 
     BasicBurger(String meat) {
         this.name = "Basic Burger";
@@ -21,7 +23,8 @@ public class BasicBurger {
         this.basePrice = 5D;
         this.meat = meat;
         this.additions = new ArrayList<>();
-        this.addonsList = new String[]{"tomato", "carrot", "mushroom", "lettuce", "bacon", "onion", "egg", "pickle"};
+        this.addonsList = new String[]{"tomato", "carrot", "mushroom", "lettuce", "bacon", "onion", "egg", "pickle", "avocado"};
+        this.addonCodes = this.getAddonCodes();
     }
 
     private Double getPrice() {
@@ -29,11 +32,11 @@ public class BasicBurger {
     }
 
 
-    public String getBread() {
+    protected String getBread() {
         return bread;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
@@ -46,11 +49,16 @@ public class BasicBurger {
 
 
     //This method takes the buyer's order
-    void takeOrder(int limit) {
-        System.out.println("Which type of add on would you like? Enter q anytime to stop");
+    protected void takeOrder(int limit) {
+        System.out.println("====================================");
+        System.out.println("     B U R G E R  M E N U ");
+        System.out.println("====================================");
+        System.out.println("Add-on Code  Extra Add-on Item");
+        System.out.println("---------------------------------");
         for (int i = 0; i < this.addonsList.length; i++) {
-            System.out.println(i + 1 + " for " + this.addonsList[i]);
+            System.out.println(this.addonCodes.charAt(i) + " ---------- " + this.addonsList[i]);
         }
+        System.out.println("Which type of add on would you like? \nEnter item code to add to burger. \nhit \"q\" when you are done.");
         this.setAdditions(limit);
         this.getConfirmation();
     }
@@ -67,8 +75,8 @@ public class BasicBurger {
     }
 
 
-    //This method returns a string of the addonsList indexes to be used for validation
-    private String getAddonsIndexes() {
+    //This method returns a string of the addonsList indexes
+    private String getAddonCodes() {
         StringBuilder indexList = new StringBuilder();
         int intIndex = 1;
         while (intIndex <= this.addonsList.length) {
@@ -89,7 +97,7 @@ public class BasicBurger {
             if (itemCode.equals("q")) {
                 break;
 
-            } else if (itemCode.equals("") || !this.getAddonsIndexes().contains(itemCode)) {
+            } else if (itemCode.equals("") || !this.addonCodes.contains(itemCode)) {
                 System.out.println("That was an invalid item code");
 
             } else {
@@ -106,7 +114,7 @@ public class BasicBurger {
     //This method displays a summary of the buyer's burger and prompts for confirmation
     private void getConfirmation() {
         System.out.println("===========================");
-        System.out.println(" O R D E R  S U M M A R Y");
+        System.out.println(" O R D E R  S U M M A R Y  ");
         System.out.println("===========================");
         System.out.println("Bread: " + this.getBread());
         System.out.println("Meat: " + this.meat);
