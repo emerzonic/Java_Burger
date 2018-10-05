@@ -20,7 +20,7 @@ public class Main {
             case "2":
                 System.out.println("What meat would you like? ");
                 meat = scanner.nextLine();
-                HealthyBurger healthyBurger = new HealthyBurger("gvhvgv");
+                HealthyBurger healthyBurger = new HealthyBurger(meat);
                 healthyBurger.takeOrder(6);
                 break;
             case "3":
@@ -30,7 +30,7 @@ public class Main {
                 deluxeBurger.takeOrder(2);
                 break;
             default:
-                System.out.println("You entered an invalid code");
+                System.out.println("You entered an invalid code.");
                 break;
         }
     }
