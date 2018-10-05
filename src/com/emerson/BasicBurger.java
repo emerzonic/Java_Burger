@@ -43,8 +43,8 @@ public class BasicBurger {
 
     //this method gets and sets the total price of the burger.
     private void setPrice() {
-        Double extraCost = this.additions.size() * 1.99D;
-        this.basePrice += extraCost;
+        Double extraCost = additions.size() * 1.99D;
+        basePrice += extraCost;
     }
 
 
@@ -55,19 +55,19 @@ public class BasicBurger {
         System.out.println("====================================");
         System.out.println("Add-on Code  Extra Add-on Item");
         System.out.println("---------------------------------");
-        for (int i = 0; i < this.addonsList.length; i++) {
-            System.out.println(this.addonCodes.charAt(i) + " ---------- " + this.addonsList[i]);
+        for (int i = 0; i < addonsList.length; i++) {
+            System.out.println(addonCodes.charAt(i) + " ---------- " + addonsList[i]);
         }
         System.out.println("Which type of add on would you like? \nEnter item code to add to burger. \nhit \"q\" when you are done.");
-        this.setAdditions(limit);
-        this.getConfirmation();
+        setAdditions(limit);
+        getConfirmation();
     }
 
 
     //This method returns a string representation of the addons.
     private String getAddons() {
         StringBuilder addOnList = new StringBuilder();
-        for (Object addOn : this.additions) {
+        for (Object addOn : additions) {
             String item = addOn + ", ";
             addOnList.append(item);
         }
@@ -79,7 +79,7 @@ public class BasicBurger {
     private String getAddonCodes() {
         StringBuilder indexList = new StringBuilder();
         int intIndex = 1;
-        while (intIndex <= this.addonsList.length) {
+        while (intIndex <= addonsList.length) {
             String stringIndex = Integer.toString(intIndex);
             String element = "" + stringIndex;
             indexList.append(element);
@@ -97,16 +97,16 @@ public class BasicBurger {
             if (itemCode.equals("q")) {
                 break;
 
-            } else if (itemCode.equals("") || !this.addonCodes.contains(itemCode)) {
+            } else if (itemCode.equals("") || !addonCodes.contains(itemCode)) {
                 System.out.println("That was an invalid item code.");
 
-            } else if (this.additions.contains(this.addonsList[Integer.parseInt(itemCode) - 1])) {
-                System.out.println("You have already added " + this.addonsList[Integer.parseInt(itemCode) - 1] + ".");
+            } else if (additions.contains(addonsList[Integer.parseInt(itemCode) - 1])) {
+                System.out.println("You have already added " + addonsList[Integer.parseInt(itemCode) - 1] + ".");
 
             } else {
                 int index = Integer.parseInt(itemCode) - 1;
-                this.additions.add(this.addonsList[index]);
-                System.out.println(this.addonsList[index] + " has been added to your " + this.getName() + ".");
+                this.additions.add(addonsList[index]);
+                System.out.println(addonsList[index] + " has been added to your " + getName() + ".");
                 counter++;
             }
         }
@@ -119,15 +119,15 @@ public class BasicBurger {
         System.out.println("===========================");
         System.out.println(" O R D E R  S U M M A R Y  ");
         System.out.println("===========================");
-        System.out.println("Bread: " + this.getBread());
+        System.out.println("Bread: " + getBread());
         System.out.println("Meat: " + this.meat);
-        System.out.println("Extra add-ons: " + this.getAddons());
+        System.out.println("Extra add-ons: " + getAddons());
         System.out.println("===========================");
         System.out.println("Does everything look good? y/n");
         String input = scanner.nextLine();
         //TO DO: add additional actions
         if (input.toLowerCase().equals("y")) {
-            this.deliverBurger();
+            deliverBurger();
         } else {
             System.out.println("What would you like to change?");
         }
@@ -136,7 +136,7 @@ public class BasicBurger {
 
     //This method displays the order's total for the burger
     private void deliverBurger() {
-        System.out.println("Your total is $" + new DecimalFormat("##.##").format(this.getPrice()));
+        System.out.println("Your total is $" + new DecimalFormat("##.##").format(getPrice()));
         System.out.println("Thanks for your business!");
     }
 }
