@@ -10,7 +10,7 @@ public class Main {
         while(!quit){
             Scanner scanner = new Scanner(System.in);
             System.out.println("Which type of burger would you like? ");
-            System.out.println("Enter the burger code\n 1 for Basic Burger\n 2 for Healthy Burger\n 3 for Deluxe Burger\n Q to quit\r");
+            System.out.println("Enter the burger code\n 1 for Basic Burger\n 2 for Healthy Burger\n 3 for Deluxe Burger\n q to quit\r");
             String userInput = scanner.nextLine();
 
         switch (userInput) {
@@ -37,7 +37,7 @@ public class Main {
                 quit = true;
                 break;
             default:
-                System.out.println("You entered an invalid code.\n");
+                System.out.println("You entered an invalid menu code.\n");
                 break;
         }
     }
