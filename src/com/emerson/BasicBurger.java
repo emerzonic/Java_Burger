@@ -136,6 +136,6 @@ public class BasicBurger {
     //This method displays the order's total for the burger
     private void deliverBurger() {
         System.out.println("Your total is $" + new DecimalFormat("##.##").format(getPrice()));
-        System.out.println("Thanks for your business!");
+        System.out.println("Thanks for your business!\n");
     }
 }

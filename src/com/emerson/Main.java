@@ -5,10 +5,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Which type of burger would you like? ");
-        System.out.println("Enter the burger code\n 1 for Basic Burger\n 2 for Healthy Burger\n 3 for Deluxe Burger\n");
-        String userInput = scanner.nextLine();
+        Boolean quit = false;
+
+        while(!quit){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Which type of burger would you like? ");
+            System.out.println("Enter the burger code\n 1 for Basic Burger\n 2 for Healthy Burger\n 3 for Deluxe Burger\n Q to quit\r");
+            String userInput = scanner.nextLine();
 
         switch (userInput) {
             case "1":
@@ -29,9 +32,14 @@ public class Main {
                 DeluxeBurger deluxeBurger = new DeluxeBurger(meat);
                 deluxeBurger.takeOrder(2);
                 break;
+            case "q":
+                System.out.println("No problem see you another time");
+                quit = true;
+                break;
             default:
-                System.out.println("You entered an invalid code.");
+                System.out.println("You entered an invalid code.\n");
                 break;
         }
+    }
     }
 }
