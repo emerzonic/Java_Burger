@@ -50,14 +50,14 @@ public class BasicBurger {
 
     //This method takes the buyer's order
     protected void takeOrder(int limit) {
-        System.out.println("====================================");
-        System.out.println("    EXTRA ADD-ONS  M E N U ");
-        System.out.println("====================================");
-        System.out.println("Add-on Code  Extra Add-on Item");
-        System.out.println("---------------------------------");
-        for (int i = 0; i < addonsList.length; i++) {
+        System.out.println("====================================\n"+
+                           "    EXTRA ADD-ONS  M E N U \n"+
+                           "====================================\n"+
+                           "Add-on Code  Extra Add-on Item\n"+
+                           "---------------------------------");
+        for (int i = 0; i < addonsList.length; i++)
             System.out.println(addonCodes.charAt(i) + " ---------- " + addonsList[i]);
-        }
+
         System.out.println("Which type of add on would you like? \nEnter item code to add to burger. \nhit \"q\" when you are done.");
         setAdditions(limit);
         getConfirmation();
@@ -94,13 +94,13 @@ public class BasicBurger {
         int counter = 1;
         while (counter <= limit) {
             String itemCode = scanner.nextLine();
-            if (itemCode.equals("q")) {
+            if (itemCode.equals("q"))
                 break;
 
-            } else if (itemCode.equals("") || !addonCodes.contains(itemCode)) {
+             else if (itemCode.equals("") || !addonCodes.contains(itemCode))
                 System.out.println("That was an invalid item code.");
 
-            } else if (additions.contains(addonsList[Integer.parseInt(itemCode) - 1])) {
+             else if (additions.contains(addonsList[Integer.parseInt(itemCode) - 1])) {
                 System.out.println("You have already added " + addonsList[Integer.parseInt(itemCode) - 1] + ".");
 
             } else {
@@ -116,21 +116,20 @@ public class BasicBurger {
 
     //This method displays a summary of the buyer's burger and prompts for confirmation
     private void getConfirmation() {
-        System.out.println("===========================");
-        System.out.println(" O R D E R  S U M M A R Y  ");
-        System.out.println("===========================");
-        System.out.println("Bread: " + getBread());
-        System.out.println("Meat: " + this.meat);
-        System.out.println("Extra add-ons: " + getAddons());
-        System.out.println("===========================");
-        System.out.println("Does everything look good? y/n");
+        System.out.println("===========================\n"+
+                           " O R D E R  S U M M A R Y  \n"+
+                           "===========================\n"+
+                           "Bread: " + getBread()+"\n"+
+                           "Meat: " + this.meat +"\n"+
+                           "Extra add-ons: " + getAddons()+"\n"+
+                           "===========================\n"+
+                           "Does everything look good? y/n");
         String input = scanner.nextLine();
         //TO DO: add additional actions
-        if (input.toLowerCase().equals("y")) {
+        if (input.toLowerCase().equals("y"))
             deliverBurger();
-        } else {
+         else
             System.out.println("What would you like to change?");
-        }
     }
 
 
