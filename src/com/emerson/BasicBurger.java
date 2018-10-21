@@ -12,7 +12,7 @@ public class BasicBurger {
     private List<Object> additions;
     private Scanner scanner = new Scanner(System.in);
     protected String[] addonsList;
-    protected String addonCodes;
+    protected List<Integer> addonCodes;
     private String bread;
     private String name;
 
@@ -56,7 +56,7 @@ public class BasicBurger {
                            "Add-on Code  Extra Add-on Item\n"+
                            "---------------------------------");
         for (int i = 0; i < addonsList.length; i++)
-            System.out.println(addonCodes.charAt(i) + " ---------- " + addonsList[i]);
+            System.out.println((i +1)+ " ---------- " + addonsList[i]);
 
         System.out.println("Which type of add on would you like? \nEnter item code to add to burger. \nhit \"q\" when you are done.");
         setAdditions(limit);
@@ -76,16 +76,15 @@ public class BasicBurger {
 
 
     //This method returns a string of the addonsList indexes
-    private String getAddonCodes() {
-        StringBuilder indexList = new StringBuilder();
+    private List<Integer> getAddonCodes() {
+        List<Integer> indexList = new ArrayList<>();
         int intIndex = 1;
         while (intIndex <= addonsList.length) {
-            String stringIndex = Integer.toString(intIndex);
-            String element = "" + stringIndex;
-            indexList.append(element);
+            indexList.add(intIndex);
             intIndex++;
         }
-        return indexList.toString();
+        System.out.println(indexList.toString());
+        return indexList;
     }
 
 
@@ -93,21 +92,20 @@ public class BasicBurger {
     private void setAdditions(int limit) {
         int counter = 1;
         while (counter <= limit) {
-            String itemCode = scanner.nextLine();
-            if (itemCode.equals("q"))
-                break;
+            String input = scanner.nextLine();
+            try{
+                if (input.equals("q"))
+                    break;
+                int itemCode = Integer.parseInt(input);
+                String item = addonsList[itemCode - 1];
 
-             else if (itemCode.equals("") || !addonCodes.contains(itemCode))
-                System.out.println("That was an invalid item code.");
-
-             else if (additions.contains(addonsList[Integer.parseInt(itemCode) - 1])) {
-                System.out.println("You have already added " + addonsList[Integer.parseInt(itemCode) - 1] + ".");
-
-            } else {
-                int index = Integer.parseInt(itemCode) - 1;
-                this.additions.add(addonsList[index]);
-                System.out.println(addonsList[index] + " has been added to your " + getName() + ".");
+                if (additions.contains(item))
+                    System.out.println("You have already added " + item + ".");
+                this.additions.add(item);
+                System.out.println(item + " has been added to your " + getName() + ".");
                 counter++;
+            }catch (Exception e){
+                System.out.println("That was an invalid item code.");
             }
         }
         this.setPrice();
